@@ -9,15 +9,26 @@ export default class RandomPlanet extends React.Component {
   state = {
     planet: {},
     loading: true,
+    error: false,
   };
 
   onPlanetLoaded = (planet) => {
     this.setState({ planet, loading: false });
   };
 
+  onError = (err) => {
+    this.setState({
+      error: true,
+      loading: false,
+    });
+  };
+
   updatePlanet() {
-    const id = Math.floor(Math.random() * 25 + 2);
-    this.swapiService.getPlanet(id).then(this.onPlanetLoaded);
+    const id = Math.floor(Math.random() * 25 + 2);;
+    this.swapiService
+      .getPlanet(id)
+      .then(this.onPlanetLoaded)
+      .catch(this.onError);
   }
 
   constructor() {
@@ -29,7 +40,20 @@ export default class RandomPlanet extends React.Component {
     const {
       planet: { id, name, popultauion, rotationPeriod, diameter },
       loading,
+      error,
     } = this.state;
+    if (error) {
+      return (
+        <div className="rnd-planet-form">
+          <img
+            className="errImage"
+            alt="error image"
+            src={`https://cdn.custom-cursor.com/packs/443/pack404.png`}
+          />
+          <p className="err-text">Could not find the planet</p>
+        </div>
+      );
+    }
     if (loading) {
       return (
         <div className="rnd-planet-form">
@@ -42,6 +66,7 @@ export default class RandomPlanet extends React.Component {
       return (
         <div className="rnd-planet-form">
           <img
+            className="planet-image"
             alt="planet"
             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
           />

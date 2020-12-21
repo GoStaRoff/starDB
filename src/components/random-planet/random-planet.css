@@ -5,7 +5,13 @@
     margin: 5%;
 }
 
-.rnd-planet-form img{
+.errImage{
+    margin-left: 10%;
+    width: 200px;
+    height: 100px;
+}
+
+.rnd-planet-form .planet-image{
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
@@ -36,4 +42,8 @@
 .spinner {
     margin-left: auto;
     margin-right: auto;
+}
+
+.err-text{
+    padding-top: 10%;
 }

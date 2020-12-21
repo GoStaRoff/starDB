@@ -13,11 +13,11 @@
   
   .header ul li:hover {
     background-color: #444;
+    cursor: pointer;
   }
   
   .header a:hover {
     text-decoration: none;
-    cursor: default;
   }
   
   .header h3 a {
