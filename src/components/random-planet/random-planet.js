@@ -22,19 +22,24 @@ export default class RandomPlanet extends React.Component {
       loading: false,
     });
   };
-
-  updatePlanet() {
-    const id = Math.floor(Math.random() * 25 + 2);;
+  
+  updatePlanet = () => {
+    const id = Math.floor(Math.random() * 25 + 2);
     this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded)
       .catch(this.onError);
-  }
+  };
 
-  constructor() {
-    super();
-    this.updatePlanet();
-  }
+componentWillUnmount(){
+  clearInterval(this.interval);
+}
+
+componentDidMount(){
+  this.updatePlanet();
+    this.interval = setInterval(this.updatePlanet, 7500);
+}
+
 
   render() {
     const {
@@ -47,7 +52,7 @@ export default class RandomPlanet extends React.Component {
         <div className="rnd-planet-form">
           <img
             className="errImage"
-            alt="error image"
+            alt="errorimage"
             src={`https://cdn.custom-cursor.com/packs/443/pack404.png`}
           />
           <p className="err-text">Could not find the planet</p>
