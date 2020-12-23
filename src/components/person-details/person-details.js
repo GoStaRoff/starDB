@@ -10,12 +10,22 @@ export default class PersonDetails extends React.Component {
     loading: true,
   };
 
+  updatePerson(){
+      const {personId} = this.props;
+      if(personId){
+        return;
+      }
+      this.swapiService.getPerson(personId).then((person) => {
+        this.setState({person});
+      });
+  }
+
   onPersonLoaded = (person) => {
     this.setState({ person, loading: false });
   };
 
   componentDidMount() {
-    this.swapiService.getPerson(this.props.personId).then(this.onPersonLoaded);
+    this.updatePerson();
   }
 
   render() {
