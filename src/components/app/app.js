@@ -10,7 +10,7 @@ import ItemList from "../item-list/item-list";
 export default class App extends React.Component {
   state = {
     showRandomPlanet: true,
-    selectedPerson : null
+    selectedPerson : 1
   };
 
   toggleRandomPlanet = () => {
@@ -22,12 +22,12 @@ export default class App extends React.Component {
   };
 
   onPersonSelected = (id) => {
-
+    this.setState({selectedPerson:id});
   }
 
   render() {
     const planet = this.state.showRandomPlanet ? <RandomPlanet /> : null;
-
+    console.log(this.state.selectedPerson)
     return (
       <div className="stardb-app">
         <Header />

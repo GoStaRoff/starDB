@@ -22,7 +22,7 @@ export default class RandomPlanet extends React.Component {
       loading: false,
     });
   };
-  
+
   updatePlanet = () => {
     const id = Math.floor(Math.random() * 25 + 2);
     this.swapiService
@@ -31,15 +31,14 @@ export default class RandomPlanet extends React.Component {
       .catch(this.onError);
   };
 
-componentWillUnmount(){
-  clearInterval(this.interval);
-}
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
-componentDidMount(){
-  this.updatePlanet();
+  componentDidMount() {
+    this.updatePlanet();
     this.interval = setInterval(this.updatePlanet, 7500);
-}
-
+  }
 
   render() {
     const {
