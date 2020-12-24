@@ -1,6 +1,6 @@
 .rnd-planet-form{
     display: flex;
-    background-color: rgba(107, 107, 107, 0.3);
+    background-color: rgba(75, 75, 75, 0.5);
     border-radius: 5px;
     margin: 5%;
 }

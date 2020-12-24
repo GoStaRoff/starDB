@@ -27,3 +27,7 @@
   .header h3 a:hover {
     color: #00bc8c;
   }
+
+  .logo {
+    margin-left: 20px;
+  }

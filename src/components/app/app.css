@@ -1,0 +1,13 @@
+.stardb-app{
+  background-image: url('background.jpg');
+}
+
+.header{
+  background-color: rgba(75, 75, 75, 0.5);
+  border-radius: 10px;
+}
+
+button{
+  margin-left: 5%;
+  margin-bottom: 20px;
+}

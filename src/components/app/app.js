@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../header/header";
 //import ItemsList from "../item-list/item-list";
-
+import './app.css';
 //import PlanetDetails from "../planet-details/planet-details";
 //import StarshipDetails from "../starship-details/starship-details";
 import RandomPlanet from "../random-planet/random-planet";
@@ -34,7 +34,7 @@ export default class App extends React.Component {
     console.log(this.state.selectedPerson)
     return (
       <div className="stardb-app">
-        <Header />
+        <Header className="header"/>
         {planet}
 
         <button
