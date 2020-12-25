@@ -60,7 +60,7 @@ export default class PersonDetails extends React.Component {
 
           <div className="card-body">
             <h4>
-              {name} {this.props.personId}
+              {name}
             </h4>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">

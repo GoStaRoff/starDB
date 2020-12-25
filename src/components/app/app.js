@@ -29,7 +29,6 @@ export default class App extends React.Component {
 
   render() {
     const planet = this.state.showRandomPlanet ? <RandomPlanet /> : null;
-    console.log(this.state.selectedPerson);
 
     if (this.state.hasError) {
       return <ErrorIndicator/>
