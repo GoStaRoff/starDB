@@ -1,11 +1,11 @@
-.person-form{
+.item-form{
     display: flex;
     background-color: rgba(107, 107, 107, 0.3);
     border-radius: 5px;
     margin-right: 10%;
 }
 
-.person-form img{
+.item-form img{
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
@@ -15,7 +15,7 @@
     border-radius: 20px;
 }
 
-.person-form h3{
+.item-form h3{
     margin: 30px;
     color: white;
     cursor: default; 
@@ -34,24 +34,24 @@
     color: white;
 }
 
-.person-details {
+.item-details {
     display: flex;
     flex-direction: row;
     padding: 1rem;
     border: 1px solid #444;
   }
   
-  .person-details .person-image {
+  .item-details .item-image {
     width: 30%;
     height: 30%;
     border-radius: 10px;
   }
   
-  .person-details .list-group-item {
+  .item-details .list-group-item {
     padding: .25rem;
   }
   
-  .person-details .list-group-item .term{
+  .item-details .list-group-item .term{
     margin-right: .5rem;
   }
   
