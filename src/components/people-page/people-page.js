@@ -23,7 +23,7 @@ export default class PeoplePage extends React.Component {
       return <ErrorIndicator />;
     } else {
       return (
-        <div className="row mb2">
+        <div className="row mb2 page">
           <div className="col-md-6">
             <ItemList onItemSelected={this.onPersonSelected} />
           </div>
