@@ -2,6 +2,7 @@ import React from "react";
 import "./random-planet.css";
 import SwapiService from "../../services/swapi-service";
 import Spinner from "../spinner/spinner";
+import icon from './imagenotfound.svg'
 
 export default class RandomPlanet extends React.Component {
   swapiService = new SwapiService();
@@ -73,6 +74,8 @@ export default class RandomPlanet extends React.Component {
             className="planet-image"
             alt="planet"
             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+            
+            onError = {(e)=>{e.target.onerror = null; e.target.src=icon}}
           />
           <div>
             <h2 className="flex">{name}</h2>

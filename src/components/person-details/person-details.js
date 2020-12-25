@@ -76,7 +76,7 @@ export default class PersonDetails extends React.Component {
                 <span>{eyeColor}</span>
               </li>
             </ul>
-            <ErrorButton />
+            <ErrorButton className="errorButton"/>
           </div>
         </div>
       );

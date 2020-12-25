@@ -54,3 +54,7 @@
   .person-details .list-group-item .term{
     margin-right: .5rem;
   }
+  
+  button{
+    margin-top: 20px;
+  }
