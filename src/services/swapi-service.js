@@ -15,6 +15,18 @@ export default class SwapiService {
     return res.results.map(this._transformPerson);
   };
 
+  getPersonImage = ({id}) =>{
+    return `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`
+  };
+
+  getStarshipImage = ({id}) =>{
+    return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
+  };
+
+  getPlanetImage = ({id}) =>{
+    return `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`
+  };
+
   getPerson = async (id) => {
     const person = await this.getResource(`/people/${id}`);
     return this._transformPerson(person);
