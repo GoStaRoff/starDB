@@ -10,7 +10,7 @@ import ErrorButton from "../error-button/error-button";
 import ErrorIndicator from "../error-indicator/error-indicator";
 import ItemList from "../item-list/item-list";
 import SwapiService from "../../services/swapi-service";
-import ItemDetails from "../item-details/item-details";
+import ItemDetails, { Record } from "../item-details/item-details";
 import Row from "../row/row";
 
 export default class App extends React.Component {
@@ -47,7 +47,10 @@ export default class App extends React.Component {
         itemId={3}
         getData={this.swapiService.getPerson}
         getImageUrl={this.swapiService.getPersonImage}
-      />
+      >
+        <Record field="gender" label="Gender" />
+        <Record field="eyeColor" label="Eye color" />
+      </ItemDetails>
     );
     if (this.state.hasError) {
       return <ErrorIndicator />;
