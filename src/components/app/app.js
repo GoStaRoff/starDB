@@ -11,8 +11,22 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 import ItemList from "../item-list/item-list";
 import SwapiService from "../../services/swapi-service";
 import ItemDetails, { Record } from "../item-details/item-details";
+import {
+  SwapiServiceConsumer,
+  SwapiServiceProvider,
+} from "../swapi-service-context/swapi-service-context";
 import Row from "../row/row";
 import ErrorBoundry from "../error-boundry/error-boundry";
+import {
+  PersonList,
+  PlanetList,
+  StarshipList,
+} from "../sw-components/item-lists";
+import {
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+} from "../sw-components";
 
 export default class App extends React.Component {
   swapiService = new SwapiService();
@@ -62,17 +76,20 @@ export default class App extends React.Component {
 
     return (
       <ErrorBoundry>
-        <div className="stardb-app">
-          <Header />
+        <SwapiServiceProvider value={this.swapiService}>
+          <div className="stardb-app">
+            <Header />
 
-          <ItemList getData={getAllPeople} onItemSelected={() => {}}>
-            {({ name }) => <span>{name}</span>}
-          </ItemList>
+            <Row left={<PersonList />} right={<PersonDetails itemId={2} />} />
 
-          <ItemList getData={getAllPlanets} onItemSelected={() => {}}>
-            {({ name }) => <span>{name}</span>}
-          </ItemList>
-        </div>
+            <Row
+              left={<StarshipList />}
+              right={<StarshipDetails itemId={2} />}
+            />
+
+            <Row left={<PlanetList />} right={<PlanetDetails itemId={2} />} />
+          </div>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }
