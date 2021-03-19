@@ -1,9 +1,7 @@
 import React from "react";
 import "./item-details.css";
 import SwapiService from "../../services/swapi-service";
-import Spinner from "../spinner/spinner";
 import ErrorButton from "../error-button/error-button";
-import ErrorIndicator from "../error-indicator/error-indicator";
 
 const Record = ({ item, field, label }) => {
   return (
@@ -29,7 +27,10 @@ export default class ItemDetails extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.itemId !== prevProps.itemId) {
+    if (
+      this.props.itemId !== prevProps.itemId ||
+      this.props.getData !== prevProps.getData
+    ) {
       this.updateItem();
     }
   }
@@ -54,7 +55,7 @@ export default class ItemDetails extends React.Component {
       return <span>Select a item from a list</span>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = item;
+    const { name } = item;
 
     return (
       <div className="item-details card">
